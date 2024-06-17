@@ -89,7 +89,7 @@ public class MarcheurTest {
         var lieux = List.of(Marais, Sekolintsika, Hei, Pullman, Nexta, Balancoire, Boulevard, Esti);
         var Antananarivo = new Carte("Antananarivo", lieux);
 
-        var route = Bjarni.marche(Esti, Hei, Antananarivo).getMarche();
+        var route = Bjarni.marche(Esti, Hei, Antananarivo).getRoute();
         assertEquals(Hei, route.get(route.size() - 1));
     }
 
@@ -121,7 +121,7 @@ public class MarcheurTest {
         var lieux = List.of(Marais, Sekolintsika, Hei, Pullman, Nexta, Balancoire, Boulevard, Esti);
         var Antananarivo = new Carte("Antananarivo", lieux);
 
-        var route = Bjarni.marche(Esti, Hei, Antananarivo).getMarche();
+        var route = Bjarni.marche(Esti, Hei, Antananarivo).getRoute();
         assertEquals(Esti, route.get(0));
     }
 
@@ -153,7 +153,7 @@ public class MarcheurTest {
         var lieux = List.of(Marais, Sekolintsika, Hei, Pullman, Nexta, Balancoire, Boulevard, Esti);
         var Antananarivo = new Carte("Antananarivo", lieux);
 
-        assertTrue(Bjarni.marche(Esti,Hei,Antananarivo).getMarche().contains(Balancoire));
+        assertTrue(Bjarni.marche(Esti,Hei,Antananarivo).getRoute().contains(Balancoire));
     }
 
 }

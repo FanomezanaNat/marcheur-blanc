@@ -9,14 +9,14 @@ import java.util.List;
 @AllArgsConstructor
 @Getter
 public class Marche {
-    List<Lieu> marche;
+    List<Lieu> route;
 
 
     @Override
     public String toString() {
         StringBuilder marche = new StringBuilder("Marche: ");
 
-        for (Lieu lieu : this.marche) {
+        for (Lieu lieu : this.route) {
             marche.append(lieu.getNom()).append(" ");
 
         }
