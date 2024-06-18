@@ -12,20 +12,18 @@ import java.util.Random;
 public class Marcheur {
     private String nom;
 
-    public Marche marche(Lieu positionActuel, Lieu destination, Carte carte) {
-        if (carte.getLieux().isEmpty() || !carte.getLieux().contains(positionActuel) || !carte.getLieux().contains(destination)) {
-
-            throw new CustomExecption("ça ne marche pas");
-        }
+    public Marche marche(Lieu positionActuel, Lieu destination) {
+        Environnement environnement = new Environnement(positionActuel);
         List<Lieu> marche = new ArrayList<>();
         marche.add(positionActuel);
         while (!positionActuel.equals(destination)) {
-            List<Rue> ruesDisponibles = positionActuel.ruesDisponible();
+            List<Rue> ruesDisponibles = environnement.ruesDisponibles();
             Rue rue = ruesDisponibles.get(new Random().nextInt(ruesDisponibles.size()));
             Lieu prochainLieu = rue.obtenirProchainLieu(positionActuel);
 
             marche.add(prochainLieu);
             positionActuel = prochainLieu;
+            environnement.setPositionActuel(prochainLieu);
         }
 
 
